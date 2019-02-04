@@ -1,0 +1,19 @@
+version: '3'
+
+services:
+  proxy-reverso:
+    image: jwilder/nginx-proxy
+    container_name: "proxy-reverso"
+    restart: unless-stopped
+    expose:
+      - "80"
+    network_mode: host
+    volumes:
+      - ./conf/my_proxy.conf:/etc/nginx/conf.d/my_proxy.conf:ro
+      - /var/run/docker.sock:/tmp/docker.sock
+#    command: [nginx-debug, '-g', 'daemon off;']
+
+  whoami:
+    image: jwilder/whoami
+    environment:
+      - VIRTUAL_HOST=whoami.local
