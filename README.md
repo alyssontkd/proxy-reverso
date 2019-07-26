@@ -294,6 +294,18 @@ services:
 
 ```
 
+# As vezes o firewall do linux bloqueia a porta 80, principalmente com as distribuições da família RedHad (Mint e CentOS). Se após finalizar estes passos o conteiner não ficar acessível, libere o firewall para permitir conexoes pela forta 80:
+```
+$ sudo firewall-cmd --list-all      (Lista os serviços liberados)
+$ sudo firewall-cmd --add-service=http --permanent       (Adiciona a porta 80 como autorizada a receber conexão)
+$ sudo firewall-cmd --reload        (Recarregue as configurações do Browser)
+$ sudo firewall-cmd --list-all      (Lista os serviços liberados)
+
+$ sudo firewall-cmd --remove-service=ssh --permanent    (Só execute caso deseja remover a liberação do SSH)
+```
+
+
+
 # Como utilizar esta solução?
 
 ## Exemplo
