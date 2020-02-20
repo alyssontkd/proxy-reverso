@@ -13,7 +13,7 @@ services:
       - /var/run/docker.sock:/tmp/docker.sock
 #    command: [nginx-debug, '-g', 'daemon off;']
 
-  whoami:
-    image: jwilder/whoami
-    environment:
-      - VIRTUAL_HOST=whoami.local
+        #  whoami:
+        #image: jwilder/whoami
+        #environment:
+        #- VIRTUAL_HOST=whoami.local
